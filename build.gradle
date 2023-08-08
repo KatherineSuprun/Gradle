@@ -1,7 +1,11 @@
 plugins {
-    id 'java'
+    id 'application'
 }
-
+application {
+    mainClass = 'UserInfo'
+}
+apply plugin: 'java'
+//mainClass = 'User.UserInfo'
 group 'org.example'
 version '1.0-SNAPSHOT'
 
@@ -19,6 +23,10 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
 
+println 'This is executed during configuration phase'
+tasks.register('configured') {
+    println 'The project is configured'
+}
 test {
     useJUnitPlatform()
 }
